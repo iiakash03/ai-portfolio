@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Holding {
+  id            String   @id @default(uuid())
+  ticker        String
+  quantity      Float
+  purchasePrice Float
+  userId        String
+  createdAt     DateTime @default(now())
+  User          User     @relation(fields: [userId], references: [id])
+}
+
+model User {
+  id       String    @id @default(uuid())
+  email    String    @unique
+  password String
+  holdings Holding[]
+}
