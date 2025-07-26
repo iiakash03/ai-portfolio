@@ -10,7 +10,7 @@ export const isAuthenticated = async (req,res,next) => {
         res.status(401).json({ message: "Unauthorized access" });
         return;
     }
-    console.log(token,"in middleware")
+
     try {
         const secretKey = process.env.JWT_SECRET || "topsecret";
         const decoded = jwt.verify(token, secretKey) ;
