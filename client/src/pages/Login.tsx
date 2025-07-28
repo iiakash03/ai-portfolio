@@ -9,6 +9,9 @@ import { Eye, EyeOff, TrendingUp } from "lucide-react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+
+
+
 const Login = () => {
 
     const navigate= useNavigate();
@@ -28,7 +31,7 @@ const Login = () => {
 
       console.log("Login response", response.data); // ✅ This already works
 
-      if(response.statusText=="OK") {
+      if(response.data.message=="Login successful") {
 
         console.log("Login response", response.data); // ✅ This already works
         console.log("Setting token in localStorage...");
