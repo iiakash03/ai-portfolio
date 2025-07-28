@@ -28,7 +28,10 @@ const Login = () => {
 
       if(response.statusText=="OK") {
 
-        localStorage.setItem('token', response.data.token);
+        console.log("Login response", response.data); // ✅ This already works
+        console.log("Setting token in localStorage...");
+        localStorage.setItem("token", response.data.token);
+        console.log("Token set:", localStorage.getItem("token"));
 
         setIsLoading(false);
 
