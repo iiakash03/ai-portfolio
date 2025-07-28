@@ -14,7 +14,7 @@ const Index = () => {
               <TrendingUp className="h-8 w-8 text-primary-foreground" />
             </div>
           </div>
-          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold mb-6 text-primary">
             Portfolio Tracker
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
