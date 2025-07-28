@@ -29,14 +29,11 @@ const Login = () => {
       // TODO: Replace with actual API call
       const response=await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, { email, password })
 
-      console.log("Login response", response.data); // ✅ This already works
-
       if(response.data.message=="Login successful") {
 
-        console.log("Login response", response.data); // ✅ This already works
-        console.log("Setting token in localStorage...");
+
         localStorage.setItem("token", response.data.token);
-        console.log("Token set:", localStorage.getItem("token"));
+        
 
         setIsLoading(false);
 
@@ -45,8 +42,6 @@ const Login = () => {
       toast("Login successful Welcome to your Dashboard");
       }
       
-      // TODO: Redirect to dashboard
-      console.log("Login:", { email, password });
     } catch (error) {
       toast(`Login failed Please check your credentials and try again ${error}`, {
         style: { background: "#f87171", color: "#fff" } // optional: style for destructive variant

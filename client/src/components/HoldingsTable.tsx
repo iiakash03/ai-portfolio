@@ -37,7 +37,6 @@ interface HoldingsTableProps {
 }
 
 const formatPrice = (price: number | undefined): string => {
-    console.log("formatPrice called with:", price, typeof price);
   if (typeof price !== 'number') return '$0.00';
   return `$${price.toFixed(2)}`;
 };

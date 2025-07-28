@@ -45,7 +45,7 @@ const Register = () => {
       navigate('/dashboard')
       
       // TODO: Redirect to dashboard or login
-      console.log("Register:", { email, password });
+     
     } catch (error) {
       toast(`Registration failed Please try again later ${error}`, {
         style: { background: "#f87171", color: "#fff" } // optional: style for destructive variant
