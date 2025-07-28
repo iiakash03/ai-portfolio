@@ -45,4 +45,3 @@ Give 3 personalized investment insights to improve their portfolio in terms of d
     return "AI service failed to generate insights.";
   }
 };
-{}
