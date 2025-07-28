@@ -6,7 +6,11 @@ import portfolioRoutes from './routes/portfolioRoutes.js'
 const app=express()
 
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://ai-portfolio-voqe.vercel.app/',  // ✅ frontend domain
+  credentials: true
+}));
+
 app.use(express.json())
 
 app.use('/api/auth',authRoutes)
