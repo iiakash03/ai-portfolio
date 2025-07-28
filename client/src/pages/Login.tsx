@@ -26,6 +26,8 @@ const Login = () => {
       // TODO: Replace with actual API call
       const response=await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, { email, password })
 
+      console.log("Login response", response.data); // ✅ This already works
+
       if(response.statusText=="OK") {
 
         console.log("Login response", response.data); // ✅ This already works
