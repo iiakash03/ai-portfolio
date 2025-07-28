@@ -1,5 +1,6 @@
 import {getPortfolioByUserId,addStockService,updateStockService,deleteStockService} from '../../services/portfolio/portService.js';
 import { getMultiplePrices } from '../../utils/stockPrice.js';
+import { generateInsights } from '../../utils/insightEngine.js';
 
 
 
@@ -16,7 +17,7 @@ const getPortFolio = async (req, res) => {
         console.log("Prices fetched for tickers:", tickers, "Prices:", prices); // Debugging line to check fetched prices
 
         portfolio.forEach((stock, index) => {
-            stock.currentPrice = prices[index];
+            stock.currentPrice = parseInt(prices[index]);
             stock.currentValue = stock.quantity * prices[index];
             stock.pnl= (prices[index] - stock.purchasePrice) * stock.quantity;
         });
@@ -71,9 +72,9 @@ const updateStockController = async (req, res) => {
 const deleteStockController = async (req, res) => {
     try {
         const stockId = req.params.id; // Assuming the stock ID is passed in the URL
-        const { ticker } = req.body;
+        
         const userId = req.user.id; // Assuming req.user is set by isAuthenticated middleware  
-        console.log("Deleting stock for user ID:", userId, "Stock:", ticker); // Debugging line to check input values
+         // Debugging line to check input values
         await deleteStockService(stockId);
         res.status(200).json({ message: "Stock deleted successfully" });
     } catch (error) {
